@@ -1,20 +1,20 @@
 package anki
 
-type RequestSchema[T string | []uint64] struct {
+type requestSchema[T string | []uint64] struct {
 	Action  string       `json:"action"`
 	Version int          `json:"version"`
 	Params  map[string]T `json:"params"`
 }
 
-type ResponseSchema[T []uint64 | []NoteSchema] struct {
+type responseSchema[T []uint64 | []noteSchema] struct {
 	Result T       `json:"result"`
 	Error  *string `json:"error"`
 }
 
-type NoteSchema struct {
-	Fields map[string]FieldSchema `json:"fields"`
+type noteSchema struct {
+	Fields map[string]fieldSchema `json:"fields"`
 }
 
-type FieldSchema struct {
+type fieldSchema struct {
 	Value string `json:"value"`
 }
